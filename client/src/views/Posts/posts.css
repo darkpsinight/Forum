@@ -1,0 +1,131 @@
+.posts {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.posts > div {
+  margin: 10px;
+}
+
+.leftSider {
+  padding: 10px;
+  flex: 0.2;
+  background: rgb(238, 236, 236);
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+.topsider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.topsider > h6 {
+  color: lightgray;
+  margin-top: -15px;
+  font-size: 15px;
+}
+
+.topsider > h5 {
+  margin-top: 10px;
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #F0EEEC;
+  padding: 50px;
+  font-size: 15px;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.statistics > ul > li {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistics > ul > li > span {
+  color: rgb(255, 123, 0);
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.mainContent {
+  flex: 0.6;
+}
+
+.search {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.searchicon {
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.search > input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  font-size: large;
+  text-align: center;
+}
+
+.createPost {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.createFormAvatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.createPost > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  font-size: large;
+}
+
+.imagebtn {
+  font-size: 30px;
+}
+
+.notifications {
+  flex: 0.2;
+  display: flex;
+  flex-direction: column;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}

@@ -1,0 +1,26 @@
+.notification {
+  display: flex;
+  padding: 10px;
+  align-items: flex-start;
+  background: rgb(240, 238, 236);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.leftnotif > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.rightnotif {
+  margin-left: 10px;
+}
+
+.rightnotif > span {
+  font-size: 14px;
+  color: rgb(182, 180, 180);
+}
+
+.rightnotif > h6 {
+}

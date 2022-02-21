@@ -1,0 +1,26 @@
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.comment > img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.comment > span {
+    font-size: 14px;
+    color: lightgray;
+}
+
+.commentcontent {
+    background:rgb(236, 236, 236);
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}

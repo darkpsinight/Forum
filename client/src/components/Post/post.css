@@ -1,0 +1,92 @@
+.postheader {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.headerleft {
+    display: flex;
+}
+
+.headerleft > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.postinfo {
+    margin-left: 10px;
+}
+
+.postinfo > span {
+    font-size: 15px;
+    color: lightgray;
+}
+
+.postsettings {
+    font-size: 25px;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.postsettings:hover {
+    color: rgb(173, 173, 173);
+}
+
+.postText{
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+.post-down-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-down-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-down-header > span {
+    font-size: 15px;
+    color: lightgray;
+    margin-left: 5px;
+}
+
+.likeicon {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.likeicon:hover {
+    color: #FA65B1;
+}
+
+.comments {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentform {
+    display: flex;
+    background: rgb(228, 227, 227);
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.commentform > img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.commentform > input {
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+}
