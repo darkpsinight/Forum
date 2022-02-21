@@ -1,13 +1,16 @@
+import React from "react"
+
+
 function Profile() {
     return (
-      <div className='contact'>
-        <div className='container'>
-          <div className='row'>
-            <h1>Hello Profile</h1>
-          </div>
+        <div className='contact'>
+            <div className='container'>
+                <div className='row'>
+                    <h1>Hello Profile</h1>
+                </div>
+            </div>
         </div>
-      </div>
     )
-  }
-  
-  export default Profile
+}
+
+export default Profile
