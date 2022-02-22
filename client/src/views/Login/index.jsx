@@ -46,7 +46,7 @@ export default () => {
                                                     <input value={password} onChange={(e) => setpassword(e.target.value)} type="password" name="password" id="subject" placeholder="password" autoComplete="on" />
                                                 </fieldset>
                                                 <fieldset>
-                                                    <button type="submit" id="form-submit" className="main-button ">login</button>
+                                                    <button type="submit" id="form-submit" className="main-button ">Login</button>
                                                 </fieldset>
                                             </div>
                                         </div>

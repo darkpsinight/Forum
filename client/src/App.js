@@ -15,9 +15,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<PublicRoute />}>
+          <Route path='/' exact element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/' exact element={<Home />} />
         </Route>
         <Route path='/' role={"user","admin"} element={<PrivateRoute />}>
           <Route path='/auth/posts' element={<Posts />} />
