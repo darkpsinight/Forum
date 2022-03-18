@@ -19,7 +19,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
         </Route>
-        <Route path='/' role={"user","admin"} element={<PrivateRoute />}>
+        <Route path='/' role={["user","admin"]} element={<PrivateRoute />}>
           <Route path='/auth/posts' element={<Posts />} />
           <Route path='/profile' element={<Profile />} />
         </Route>
