@@ -26,7 +26,7 @@ export default () => {
 
 
                     <div className="headerleft">
-                        <img src="assets/images/author-post.jpg" />
+                        <img src="../../assets/images/author-post.jpg" />
                         <div className="postinfo">
                             <h6>By: Andrea Mentuzi</h6>
                             <span>12:00</span>
@@ -50,7 +50,7 @@ export default () => {
                 </div>
 
                 <div className="thumb mt-2">
-                    <a href="#"><img src="assets/images/blog-post-01.jpg" /></a>
+                    <a href="#"><img src="../../../public/assets/images/blog-post-01.jpg" /></a>
                 </div>
                 <div className="post-down-content">
 

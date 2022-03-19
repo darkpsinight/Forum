@@ -6,7 +6,7 @@ function Profile() {
         <div className='contact'>
             <div className='container'>
                 <div className='row'>
-                    <h1>Hello Profile</h1>
+                    <h1>This is the Profile page</h1>
                 </div>
             </div>
         </div>

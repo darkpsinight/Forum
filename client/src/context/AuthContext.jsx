@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
           console.log(data);
           if (res.status !== 403) {
             setrole(data.role)
-            setisauth(data.isauthenticated)
+            setisauth(data.isAuthenticated)
           } else {
             setisauth(false)
             setrole("visitor")
