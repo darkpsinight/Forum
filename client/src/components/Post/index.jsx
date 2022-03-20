@@ -50,7 +50,7 @@ export default () => {
                 </div>
 
                 <div className="thumb mt-2">
-                    <a href="#"><img src="../../../public/assets/images/blog-post-01.jpg" /></a>
+                    <a href="#"><img src="/assets/images/blog-post-01.jpg" /></a>
                 </div>
                 <div className="post-down-content">
 

@@ -18,11 +18,11 @@ export default () => {
                                 {/* ***** Logo End ***** */}
                                 {/* ***** Menu Start ***** */}
                                 <ul className="nav">
-                                    <li className='scroll-to-section'><Link to='/' className='active'>Home</Link></li>
-                                    <li className='scroll-to-section'><Link to='/profile' className='active'>Profile</Link></li>
-                                    <li className='scroll-to-section'><Link to='/posts' className='active'>Posts</Link></li>
-                                    <li className='scroll-to-section'><Link to='/login' className='active'>Login</Link></li>
-                                    <li className='scroll-to-section'><Link to='/register' className='active'>Register</Link></li>
+                                    <li className='scroll-to-section'><Link to='/' /* className='active' */>Home</Link></li>
+                                    <li className='scroll-to-section'><Link to='/profile' /* className='active' */>Profile</Link></li>
+                                    <li className='scroll-to-section'><Link to='/posts' /* className='active' */>Posts</Link></li>
+                                    <li className='scroll-to-section'><Link to='/login' /* className='active' */>Login</Link></li>
+                                    <li className='scroll-to-section'><Link to='/register' /* className='active' */>Register</Link></li>
                                     <li className="scroll-to-section"><div className="border-first-button"><Link to='/logout' className='active'>logout</Link></div></li>
                                     {/* <li className="scroll-to-section"><a href="/" className="active">Home</a></li>
                                     <li className="scroll-to-section"><a href="/profile">Profile</a></li>
