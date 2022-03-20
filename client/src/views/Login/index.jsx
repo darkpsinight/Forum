@@ -16,8 +16,6 @@ export default () => {
             password: password
         }
 
-        console.log(data);
-
         dispatch(login(data))
     }
 

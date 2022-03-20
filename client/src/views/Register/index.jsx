@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register, selectErrorStatus, selectRegisterStatus } from '../../features/authentication/authenticationSlice'
-import './Register.css'
 
 export default () => {
     const [username, setusername] = useState('')

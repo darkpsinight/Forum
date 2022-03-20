@@ -1,12 +1,15 @@
 import React from "react"
+import './home.css'
 
 
 function Home() {
     return (
-        <div className='contact'>
-            <div className='container'>
-                <div className='row'>
-                    <h1>Hello Home</h1>
+        <div id="contact" className="contact" style={{ display: "flex", justifyContent: "center" }} >
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+                        <h1>Hello Home</h1>
+                    </div>
                 </div>
             </div>
         </div>
