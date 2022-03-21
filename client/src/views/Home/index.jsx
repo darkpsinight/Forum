@@ -1,10 +1,9 @@
 import React from "react"
-import './home.css'
 
 
 function Home() {
     return (
-        <div id="contact" className="contact" style={{ display: "flex", justifyContent: "center" }} >
+        <div id="contact" className="contact" style={{ display: "flex", justifyContent: "center", paddingTop: "150px" }} >
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">

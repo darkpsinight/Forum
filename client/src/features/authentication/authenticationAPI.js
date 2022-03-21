@@ -26,4 +26,30 @@ export const AuthenticationService = {
         return err;
       });
   },
+
+  // logout request
+  logout: () => {
+    return axiosInstance
+      .post(requests.logout, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
+
+  // getMe request
+  getMe: () => {
+    return axiosInstance
+      .get(requests.getme, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
+
+
 };

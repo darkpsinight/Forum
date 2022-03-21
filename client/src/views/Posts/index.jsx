@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
 import avatar from '../../assets/img/avatar.jpg'
 import { CgFeed } from 'react-icons/cg'
@@ -7,9 +8,19 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
-
+import { getMe, selectUserDetails } from '../../features/authentication/authenticationSlice'
 
 export default () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(getMe())
+    }, [])
+
+    const userDetails = useSelector(selectUserDetails)
+    
+
     return (
         <div className="posts">
             <div className="leftsider">
@@ -18,11 +29,11 @@ export default () => {
                     <div className="avatar">
                         <img className='avatar' src={avatar} alt="" />
                     </div>
-                    <h5>username</h5>
+                    {/* <h5>username</h5> */}
+                    <h5>{userDetails && userDetails.name}</h5>
                     <hr />
-                    <h6>Email@email.com</h6>
-
-
+                    {/* <h6>Email@email.com</h6> */}
+                    <h6>{userDetails && userDetails.email}</h6>
                     <div className="statistics">
                         <ul>
                             <li>
