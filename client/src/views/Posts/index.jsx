@@ -53,7 +53,15 @@ export default () => {
                             </li>
                         </ul>
                     </div>
-                    <button className='edit_button' onClick={()=>setdisplayform(true)}>Edit</button>
+                    <button className='edit_button' onClick={() => setdisplayform(!displayform)}>
+                        {
+                            displayform
+                                ?
+                                <p>Cancel</p>
+                                :
+                                <p>Edit</p>
+                        }
+                    </button>
                 </div>
             </div>
             <div className="mainContent">
@@ -83,7 +91,7 @@ export default () => {
                             <Post />
                         </>
                 }
-                
+
             </div>
 
             <div className="notifications">
