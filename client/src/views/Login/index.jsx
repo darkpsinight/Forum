@@ -19,6 +19,7 @@ export default () => {
         dispatch(login(data))
     }
 
+
     return (
         <div id="contact" className="contact" style={{ display: "flex", justifyContent: "center" }} >
             <div className="container">
@@ -44,7 +45,7 @@ export default () => {
                                                     <input value={password} onChange={(e) => setpassword(e.target.value)} type="password" name="password" id="subject" placeholder="password" autoComplete="on" />
                                                 </fieldset>
                                                 <fieldset>
-                                                    <button type="submit" id="form-submit" className="main-button ">Login</button>
+                                                    <button type="submit" id="form-submit" className="main-button">Login</button>
                                                 </fieldset>
                                             </div>
                                         </div>

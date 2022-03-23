@@ -65,6 +65,16 @@ div.sticky {
   margin-right: 10px;
 }
 
+.edit_button{
+  margin-top: 10px;
+  height: 35px;
+  width: 100%;
+  background : none;
+  outline : none;
+  border-radius: 20px;
+  border: 2px solid #FA65B1;
+}
+
 .mainContent {
   flex: 0.6;
 }

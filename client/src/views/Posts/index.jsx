@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
 import avatar from '../../assets/img/avatar.jpg'
@@ -15,11 +15,12 @@ export default () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-      dispatch(getMe())
+        dispatch(getMe())
     }, [])
 
     const userDetails = useSelector(selectUserDetails)
-    
+
+    const [displayform, setdisplayform] = useState(false)
 
     return (
         <div className="posts">
@@ -52,27 +53,38 @@ export default () => {
                             </li>
                         </ul>
                     </div>
+                    <button className='edit_button' onClick={()=>setdisplayform(true)}>Edit</button>
                 </div>
             </div>
             <div className="mainContent">
-                <div className="search">
-                    <input type="text" placeholder='Search...' />
-                    <AiOutlineSearch className='searchicon' />
-                </div>
 
-                <div className="createPost">
-                    <img src={avatar} className='createFormAvatar' alt="" />
-                    <input type="text" placeholder='Write a post' />
-                    <HiOutlinePhotograph className='imagebtn' />
-                </div>
-                <hr />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                {
+                    displayform
+                        ?
+                        <p>form</p>
+                        :
+                        <>
+                            <div className="search">
+                                <input type="text" placeholder='Search...' />
+                                <AiOutlineSearch className='searchicon' />
+                            </div>
+
+                            <div className="createPost">
+                                <img src={avatar} className='createFormAvatar' alt="" />
+                                <input type="text" placeholder='Write a post' />
+                                <HiOutlinePhotograph className='imagebtn' />
+                            </div>
+                            <hr />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                        </>
+                }
             </div>
+
             <div className="notifications">
                 <Notification />
                 <Notification />
