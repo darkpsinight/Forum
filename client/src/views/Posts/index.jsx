@@ -83,6 +83,7 @@ export default () => {
                             <Post />
                         </>
                 }
+                
             </div>
 
             <div className="notifications">
