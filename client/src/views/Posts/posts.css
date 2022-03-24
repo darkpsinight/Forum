@@ -45,9 +45,22 @@ div.sticky {
 }
 
 .avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar_image {
   height: 100px;
   width: 100px;
   border-radius: 50%;
+
+}
+
+.name {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .statistics > ul > li {

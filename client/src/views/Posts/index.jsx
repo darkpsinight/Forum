@@ -28,13 +28,18 @@ export default () => {
 
                 <div className="topsider" class="sticky">
                     <div className="avatar">
-                        <img className='avatar' src={avatar} alt="" />
+                        <img className='avatar_image' src={avatar} alt="" />
                     </div>
                     {/* <h5>username</h5> */}
-                    <h5>{userDetails && userDetails.name}</h5>
-                    <hr />
+                    <div className='name'>
+                        <h5>{userDetails && userDetails.name}</h5>
+                    </div>
+
                     {/* <h6>Email@email.com</h6> */}
-                    <h6>{userDetails && userDetails.email}</h6>
+                    <div>
+                        <h6>{userDetails && userDetails.email}</h6>
+                    </div>
+                    <hr />
                     <div className="statistics">
                         <ul>
                             <li>
