@@ -66,7 +66,7 @@ module.exports = {
                 if (ismatch) {
                     console.log('ismatch');
                     const token = signToken(user._id, user.role);
-                    res.cookie("access_token", token, { maxAge: 3600 * 1000, httpOnly: true, sameSite: true });
+                    res.cookie("access_token", token, { maxAge: 10800 * 1000, httpOnly: true, sameSite: true });
                     return res.status(200).json({ isAuthenticated: true, role: user.role })
                 } else {
                     res.status(403).json({ message: 'Invalid password !' })
