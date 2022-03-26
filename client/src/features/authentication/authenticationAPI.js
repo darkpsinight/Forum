@@ -51,5 +51,16 @@ export const AuthenticationService = {
       });
   },
 
+  // uploadAvatar request
+  uploadAvatar: (data) => {
+    return axiosInstance
+      .put(requests.avatar, data, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
 
 };

@@ -4,11 +4,11 @@ import './posts.css'
 import avatar from '../../assets/img/avatar.jpg'
 import { CgFeed } from 'react-icons/cg'
 import { BiMessageMinus } from 'react-icons/bi'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiFillCamera, AiOutlineSearch } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
-import { getMe, selectUserDetails } from '../../features/authentication/authenticationSlice'
+import { getMe, selectUserDetails, uploadAvatar } from '../../features/authentication/authenticationSlice'
 
 export default () => {
 
@@ -21,6 +21,15 @@ export default () => {
     const userDetails = useSelector(selectUserDetails)
 
     const [displayform, setdisplayform] = useState(false)
+
+    const [name, setname] = useState(userDetails ? userDetails.name : '')
+    const [email, setemail] = useState(userDetails ? userDetails.email : '')
+
+    const handleupload = (e) => {
+        const data = new FormData()
+        data.append('avatar', e.target.files[0])
+        dispatch(uploadAvatar(data))
+    }
 
     return (
         <div className="posts">
@@ -74,7 +83,24 @@ export default () => {
                 {
                     displayform
                         ?
-                        <p>form</p>
+                        <>
+                            <h3>Edit User Details :</h3>
+                            <form className='edituser'>
+                                <img src={avatar} alt="" />
+                                <AiFillCamera className='uploadcamera' onClick={() => document.getElementById('upload').click()} />
+                                <input type="file" id='upload' onChange={(e) => handleupload(e)} hidden />
+                                {
+                                    userDetails
+                                    &&
+                                    <>
+                                        <input type="text" placeholder='Change your name' value={name} onChange={(e) => setname(e.target.value)} />
+                                        <input type="text" placeholder='Change your email' value={email} onChange={(e) => setemail(e.target.value)} />
+                                    </>
+                                }
+                                <button>Save</button>
+                                <span>status</span>
+                            </form>
+                        </>
                         :
                         <>
                             <div className="search">

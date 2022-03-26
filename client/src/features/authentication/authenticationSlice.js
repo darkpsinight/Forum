@@ -47,6 +47,15 @@ export const getMe = createAsyncThunk(
   }
 );
 
+//uploadAvatar redux action
+export const uploadAvatar = createAsyncThunk(
+  "users/avatar",
+  async (data) => {
+    const response = AuthenticationService.uploadAvatar(data);
+    return response;
+  }
+);
+
 
 
 //creation du slice
@@ -107,8 +116,7 @@ const authenticationSlice = createSlice({
     },
 
     [logout.fulfilled]: (state, action) => {
-      
-      window.location.href = '/login'
+      window.location.href = '/'
     },
 
     [logout.rejected]: (state, action) => {
@@ -128,6 +136,18 @@ const authenticationSlice = createSlice({
 
     },
 
+
+    //uploadAvatar http request 3 cases
+    [uploadAvatar.pending]: (state, action) => {
+
+    },
+    [uploadAvatar.fulfilled]: (state, action) => {
+        console.log(action.payload);
+    },
+    [uploadAvatar.rejected]: (state, action) => {
+
+    },
+
   },
 
 });
@@ -135,4 +155,5 @@ export const { } = authenticationSlice.actions;
 export const selectRegisterStatus = (state) => state.authentication.registerstatus
 export const selectErrorStatus = (state) => state.authentication.errormessage
 export const selectUserDetails = (state) => state.authentication.userDetails
+
 export default authenticationSlice.reducer;

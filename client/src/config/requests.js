@@ -3,4 +3,5 @@ export const requests = {
     login : '/auth/login',
     logout : '/auth/logout',
     getme : '/auth/me',
+    avatar : '/auth/avatar',
 }

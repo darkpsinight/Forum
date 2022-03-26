@@ -6,8 +6,6 @@
   justify-content: space-between;
 }
 
-
-
 .leftSider {
   padding: 10px;
   flex: 0.2;
@@ -39,7 +37,7 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #F0EEEC;
+  background-color: #f0eeec;
   padding: 50px;
   font-size: 15px;
 }
@@ -53,7 +51,6 @@ div.sticky {
   height: 100px;
   width: 100px;
   border-radius: 50%;
-
 }
 
 .name {
@@ -77,14 +74,14 @@ div.sticky {
   margin-right: 10px;
 }
 
-.edit_button{
+.edit_button {
   margin-top: 10px;
   height: 35px;
   width: 100%;
-  background : none;
-  outline : none;
+  background: none;
+  outline: none;
   border-radius: 20px;
-  border: 2px solid #FA65B1;
+  border: 2px solid #fa65b1;
 }
 
 .mainContent {
@@ -149,4 +146,50 @@ div.sticky {
 
 input:focus::placeholder {
   color: transparent;
+}
+
+.edituser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edituser > img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.edituser > input {
+  padding-left: 20px;
+  height: 40px;
+  width: 70%;
+  outline: none;
+  border: none;
+  background: rgb(233, 232, 232);
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.edituser > button {
+  height: 40px;
+  width: 25%;
+  outline: none;
+  border: 2px solid #fa65b1;
+  background: rgb(233, 232, 232);
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.edituser > span {
+  color: lime;
+  margin-top: 10px;
+}
+
+.uploadcamera {
+  margin-top: 15px;
+  font-size: 25px;
+  color: #fa65b1;
+  cursor: pointer;
 }
