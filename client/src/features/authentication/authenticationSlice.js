@@ -143,6 +143,7 @@ const authenticationSlice = createSlice({
     },
     [uploadAvatar.fulfilled]: (state, action) => {
         console.log(action.payload);
+        state.userDetails = action.payload.data.data
     },
     [uploadAvatar.rejected]: (state, action) => {
 

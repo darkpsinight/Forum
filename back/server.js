@@ -14,9 +14,12 @@ app.use(cors({
 }))
 
 // routes
-app.use('/posts', require('./routes/post'))
 app.use('/auth', require('./routes/user'))
 
+//upload image
+app.get("/images/:image", function (req, res) {
+    res.sendFile(__dirname + "/uploads/" + req.params.image);
+});
 
 app.listen(5000, () => {
     console.log('server is runing on port 5000');

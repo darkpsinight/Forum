@@ -86,7 +86,7 @@ export default () => {
                         <>
                             <h3>Edit User Details :</h3>
                             <form className='edituser'>
-                                <img src={avatar} alt="" />
+                                <img src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                                 <AiFillCamera className='uploadcamera' onClick={() => document.getElementById('upload').click()} />
                                 <input type="file" id='upload' onChange={(e) => handleupload(e)} hidden />
                                 {
