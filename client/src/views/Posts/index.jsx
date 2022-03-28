@@ -113,7 +113,11 @@ export default () => {
                             </div>
 
                             <div className="createPost">
-                                <img src={avatar} className='createFormAvatar' alt="" />
+                                {
+                                    userDetails
+                                    &&
+                                    <img className='createFormAvatar' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
+                                }
                                 <input type="text" placeholder='Write a post' />
                                 <HiOutlinePhotograph className='imagebtn' />
                             </div>

@@ -4,6 +4,8 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import ReadMoreReact from 'read-more-react';
 import { AiFillHeart } from 'react-icons/ai'
 import Comment from '../Comment';
+import { useSelector } from 'react-redux';
+import { selectUserDetails } from '../../features/authentication/authenticationSlice';
 
 
 export default () => {
@@ -16,7 +18,7 @@ export default () => {
         )
     }
 
-
+    const userDetails = useSelector(selectUserDetails)
 
     return (
         <div className="col-lg-12 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
@@ -58,7 +60,11 @@ export default () => {
 
                     <div className="comments">
                         <div className="commentform">
-                            <img src="assets/images/author-post.jpg" />
+                            {
+                                userDetails
+                                &&
+                                <img className='avatar_image' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
+                            }
                             <input type="text" placeholder=" write a comment !" />
                         </div>
                         <Comment />
