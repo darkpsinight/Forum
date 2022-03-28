@@ -37,7 +37,11 @@ export default () => {
 
                 <div className="topsider" class="sticky">
                     <div className="avatar">
-                        <img className='avatar_image' src={avatar} alt="" />
+                        {
+                            userDetails
+                            &&
+                            <img className='avatar_image' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
+                        }
                     </div>
                     {/* <h5>username</h5> */}
                     <div className='name'>
