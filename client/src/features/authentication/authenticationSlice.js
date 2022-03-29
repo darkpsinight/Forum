@@ -56,6 +56,15 @@ export const uploadAvatar = createAsyncThunk(
   }
 );
 
+//update redux action
+export const update = createAsyncThunk(
+  "users/update",
+  async (data) => {
+    const response = AuthenticationService.update(data);
+    return response;
+  }
+);
+
 
 
 //creation du slice
@@ -146,6 +155,18 @@ const authenticationSlice = createSlice({
         state.userDetails = action.payload.data.data
     },
     [uploadAvatar.rejected]: (state, action) => {
+
+    },
+
+
+    //update http request 3 cases
+    [update.pending]: (state, action) => {
+
+    },
+    [update.fulfilled]: (state, action) => {
+        console.log(action.payload);
+    },
+    [update.rejected]: (state, action) => {
 
     },
 

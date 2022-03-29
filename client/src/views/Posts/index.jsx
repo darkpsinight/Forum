@@ -8,7 +8,7 @@ import { AiFillCamera, AiOutlineSearch } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
-import { getMe, selectUserDetails, uploadAvatar } from '../../features/authentication/authenticationSlice'
+import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
 
 export default () => {
 
@@ -29,6 +29,14 @@ export default () => {
         const data = new FormData()
         data.append('avatar', e.target.files[0])
         dispatch(uploadAvatar(data))
+    }
+
+    const updateuser = () => {
+        let data = {
+            name : name,
+            email : email
+        }
+        dispatch(update(data))
     }
 
     return (
@@ -89,7 +97,7 @@ export default () => {
                         ?
                         <>
                             <h3>Edit User Details :</h3>
-                            <form className='edituser'>
+                            <form onSubmit={updateuser} className='edituser'>
                                 <img src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                                 <AiFillCamera className='uploadcamera' onClick={() => document.getElementById('upload').click()} />
                                 <input type="file" id='upload' onChange={(e) => handleupload(e)} hidden />
@@ -101,7 +109,7 @@ export default () => {
                                         <input type="text" placeholder='Change your email' value={email} onChange={(e) => setemail(e.target.value)} />
                                     </>
                                 }
-                                <button>Save</button>
+                                <button type='submit'>Save</button>
                                 <span>status</span>
                             </form>
                         </>

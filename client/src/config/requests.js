@@ -4,4 +4,5 @@ export const requests = {
     logout : '/auth/logout',
     getme : '/auth/me',
     avatar : '/auth/avatar',
+    update : '/auth'
 }

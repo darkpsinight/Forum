@@ -12,6 +12,7 @@ route.get('/isauth', checkAuth, userController.isAuthenticated)
 route.post('/logout', checkAuth, userController.logout)
 route.get('/me', checkAuth, userController.getMe)
 route.put('/avatar', checkAuth, upload.single('avatar'), userController.uploadAvatar)
+route.put('/', checkAuth, userController.update)
 
 
 module.exports = route

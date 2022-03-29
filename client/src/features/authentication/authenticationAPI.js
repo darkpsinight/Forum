@@ -63,4 +63,16 @@ export const AuthenticationService = {
       });
   },
 
+  // update request
+  update: (data) => {
+    return axiosInstance
+      .put(requests.update, data, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
+
 };
