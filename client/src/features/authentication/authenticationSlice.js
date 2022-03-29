@@ -165,6 +165,7 @@ const authenticationSlice = createSlice({
     },
     [update.fulfilled]: (state, action) => {
         console.log(action.payload);
+        state.userDetails = action.payload.data.data
     },
     [update.rejected]: (state, action) => {
 

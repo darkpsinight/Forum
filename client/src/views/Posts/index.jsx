@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
-import avatar from '../../assets/img/avatar.jpg'
 import { CgFeed } from 'react-icons/cg'
 import { BiMessageMinus } from 'react-icons/bi'
 import { AiFillCamera, AiOutlineSearch } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
+import { IoIosShareAlt } from 'react-icons/io'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
@@ -31,10 +31,11 @@ export default () => {
         dispatch(uploadAvatar(data))
     }
 
-    const updateuser = () => {
+    const updateuser = (e) => {
+        e.preventDefault();
         let data = {
-            name : name,
-            email : email
+            name: name,
+            email: email
         }
         dispatch(update(data))
     }
@@ -51,14 +52,24 @@ export default () => {
                             <img className='avatar_image' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                         }
                     </div>
-                    {/* <h5>username</h5> */}
                     <div className='name'>
-                        <h5>{userDetails && userDetails.name}</h5>
+                        <h5>
+                            {
+                                userDetails
+                                &&
+                                userDetails.name
+                            }
+                        </h5>
                     </div>
 
-                    {/* <h6>Email@email.com</h6> */}
                     <div>
-                        <h6>{userDetails && userDetails.email}</h6>
+                        <h6>
+                            {
+                                userDetails
+                                &&
+                                userDetails.email
+                            }
+                        </h6>
                     </div>
                     <hr />
                     <div className="statistics">
@@ -116,8 +127,13 @@ export default () => {
                         :
                         <>
                             <div className="search">
-                                <input type="text" placeholder='Search...' />
-                                <AiOutlineSearch className='searchicon' />
+                                <input type="text" placeholder='Search . . .' />
+                                <div>
+                                    <AiOutlineSearch className='searchicon' />
+                                    <button>
+                                        <IoIosShareAlt />
+                                    </button>
+                                </div>
                             </div>
 
                             <div className="createPost">
