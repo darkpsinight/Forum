@@ -22,8 +22,8 @@ export default () => {
 
     const [displayform, setdisplayform] = useState(false)
 
-    const [name, setname] = useState(userDetails ? userDetails.name : '')
-    const [email, setemail] = useState(userDetails ? userDetails.email : '')
+    const [name, setname] = useState(userDetails && userDetails.name)
+    const [email, setemail] = useState(userDetails && userDetails.email)
 
     const handleupload = (e) => {
         const data = new FormData()
