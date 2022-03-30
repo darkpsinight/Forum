@@ -90,7 +90,7 @@ export default () => {
                             </li>
                         </ul>
                     </div>
-                    <button className='edit_button' onClick={() => setdisplayform(!displayform)}>
+                    <button style={{ background: "white" }} className='edit_button' onClick={() => setdisplayform(!displayform)}>
                         {
                             displayform
                                 ?
@@ -128,12 +128,7 @@ export default () => {
                         <>
                             <div className="search">
                                 <input type="text" placeholder='Search . . .' />
-                                <div>
-                                    <AiOutlineSearch className='searchicon' />
-                                    <button>
-                                        <IoIosShareAlt />
-                                    </button>
-                                </div>
+                                <AiOutlineSearch className='searchicon' />
                             </div>
 
                             <div className="createPost">
@@ -143,7 +138,12 @@ export default () => {
                                     <img className='createFormAvatar' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                                 }
                                 <input type="text" placeholder='Write a post' />
-                                <HiOutlinePhotograph className='imagebtn' />
+                                <div style={{ display: "flex" }}>
+                                    <HiOutlinePhotograph className='imagebtn' />
+                                    <button style={{ borderRadius: "10px", width: "70px", outline: "none", border: "1px solid lightgray", background: "#F1F0EE", height: "40px" }}>
+                                        <IoIosShareAlt />
+                                    </button>
+                                </div>
                             </div>
                             <hr />
                             <Post />

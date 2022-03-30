@@ -115,7 +115,7 @@ div.sticky {
   margin-top: 20px;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid lightgray;
 }
@@ -135,7 +135,7 @@ div.sticky {
 }
 
 .imagebtn {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .notifications {
@@ -167,7 +167,7 @@ input:focus::placeholder {
   width: 70%;
   outline: none;
   border: none;
-  background: rgb(233, 232, 232);
+  background: #F1F0EE;
   border-radius: 15px;
   margin-top: 10px;
 }
