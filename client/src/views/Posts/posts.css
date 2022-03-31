@@ -84,6 +84,12 @@ div.sticky {
   border: 2px solid #fa65b1;
 }
 
+.edit_button p {
+  color: rgb(49, 49, 49);
+  font-size: 17px;
+  font-weight: bold;
+}
+
 .mainContent {
   flex: 0.6;
 }

@@ -20,17 +20,21 @@ export default () => {
 
     const userDetails = useSelector(selectUserDetails)
 
+    //display form after clicking on Edit button (by default is false = not shown)
     const [displayform, setdisplayform] = useState(false)
 
+    //inputs of name + email of user
     const [name, setname] = useState(userDetails && userDetails.name)
     const [email, setemail] = useState(userDetails && userDetails.email)
 
+    //upload avatar (image) of user
     const handleupload = (e) => {
         const data = new FormData()
         data.append('avatar', e.target.files[0])
         dispatch(uploadAvatar(data))
     }
 
+    //update user infos (name + email)
     const updateuser = (e) => {
         e.preventDefault();
         let data = {
@@ -39,6 +43,26 @@ export default () => {
         }
         dispatch(update(data))
     }
+
+    //create a image post
+    const [postText, setpostText] = useState('')
+    const [image, setimage] = useState(null)
+
+    //display uploaded image
+    const [imagedisplay, setimagedisplay] = useState(null)
+
+    const handlepostimage = (e) => {
+        setimage(e.target.files[0])
+        setimagedisplay(URL.createObjectURL(e.target.files[0]))
+    }
+
+    //Create a whole post image+text
+    const CreatePost = () => {
+        
+    }
+
+
+
 
     return (
         <div className="posts">
@@ -138,13 +162,25 @@ export default () => {
                                     <img className='createFormAvatar' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                                 }
                                 <input type="text" placeholder='Write a post' />
+                                <input type="file" id="postimage" onChange={(e) => handlepostimage(e)} accept="image/*" hidden />
                                 <div style={{ display: "flex" }}>
-                                    <HiOutlinePhotograph className='imagebtn' />
+                                    <HiOutlinePhotograph
+                                        className='imagebtn'
+                                        style={{ cursor: "pointer", marginRight: "10px" }}
+                                        onClick={() => document.getElementById("postimage").click()}
+                                    />
                                     <button style={{ borderRadius: "10px", width: "70px", outline: "none", border: "1px solid lightgray", background: "#F1F0EE", height: "40px" }}>
                                         <IoIosShareAlt />
                                     </button>
                                 </div>
                             </div>
+                            {
+                                imagedisplay
+                                &&
+                                <>
+                                <img src={imagedisplay} style={{ height: '5%', width: '50%', borderRadius: '15px', marginTop:'3%' }} />
+                                </>
+                            }
                             <hr />
                             <Post />
                             <Post />
