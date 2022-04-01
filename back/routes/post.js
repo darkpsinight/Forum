@@ -1,7 +1,7 @@
 const express = require('express')
 const postController = require('../controllers/Post')
+const checkAuth = require('../middleware/auth')
 const route = express.Router()
-const checkAuth = require('../middlewares/auth')
 
 
 route.post('/', checkAuth, postController.create)

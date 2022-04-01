@@ -9,6 +9,7 @@ import { IoIosShareAlt } from 'react-icons/io'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
+import { createPost } from '../../features/posts/postsSlice'
 
 export default () => {
 
@@ -58,7 +59,14 @@ export default () => {
 
     //Create a whole post image+text
     const CreatePost = () => {
-        
+        const data = new FormData()
+
+        //affectation data de text et image
+        data.append('description', postText)
+        image && data.append('image', image)
+
+        //dispatch action mté3na
+        dispatch(createPost(data))
     }
 
 
@@ -161,7 +169,7 @@ export default () => {
                                     &&
                                     <img className='createFormAvatar' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
                                 }
-                                <input type="text" placeholder='Write a post' />
+                                <input type="text" placeholder='Write a post' value={postText} onChange={(e)=> setpostText(e.target.value)} />
                                 <input type="file" id="postimage" onChange={(e) => handlepostimage(e)} accept="image/*" hidden />
                                 <div style={{ display: "flex" }}>
                                     <HiOutlinePhotograph
@@ -169,7 +177,7 @@ export default () => {
                                         style={{ cursor: "pointer", marginRight: "10px" }}
                                         onClick={() => document.getElementById("postimage").click()}
                                     />
-                                    <button style={{ borderRadius: "10px", width: "70px", outline: "none", border: "1px solid lightgray", background: "#F1F0EE", height: "40px" }}>
+                                    <button onClick={CreatePost} style={{ borderRadius: "10px", width: "70px", outline: "none", border: "1px solid lightgray", background: "#F1F0EE", height: "40px" }}>
                                         <IoIosShareAlt />
                                     </button>
                                 </div>
