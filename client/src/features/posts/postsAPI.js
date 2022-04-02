@@ -5,6 +5,7 @@ import { requests } from "../../config/requests";
 export const PostsService = {
   // create request
   create: (data) => {
+    console.log(data);
     return axiosInstance
       .post(requests.postapi.create, data, { credentials: "include" })
       .then((res) => {
