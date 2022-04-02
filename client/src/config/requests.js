@@ -1,8 +1,13 @@
 export const requests = {
-    register : '/auth',
-    login : '/auth/login',
-    logout : '/auth/logout',
-    getme : '/auth/me',
-    avatar : '/auth/avatar',
-    update : '/auth'
+    userapi: {
+        register: '/auth',
+        login: '/auth/login',
+        logout: '/auth/logout',
+        getme: '/auth/me',
+        avatar: '/auth/avatar',
+        update: '/auth'
+    },
+    postapi: {
+        create: '/posts',
+    }
 }

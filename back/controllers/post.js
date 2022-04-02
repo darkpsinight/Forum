@@ -8,9 +8,12 @@ module.exports = {
             description: req.body.description,
             image: req.file && req.file.filename
         }
+
+        console.log(data)
+
         post.create(data, (err, post) => {
             if (err) {
-                res.status(500).json({ message: 'post not created'+err })
+                res.status(500).json({ message: 'post not created , '+ err })
             } else {
                 res.status(200).json({ message: 'post successfuly created' })
             }

@@ -6,7 +6,7 @@ export const AuthenticationService = {
   // register request
   register: (data) => {
     return axiosInstance
-      .post(requests.register, data)
+      .post(requests.userapi.register, data)
       .then((res) => {
         return res;
       })
@@ -18,7 +18,7 @@ export const AuthenticationService = {
   // login request
   login: (data) => {
     return axiosInstance
-      .post(requests.login, data)
+      .post(requests.userapi.login, data)
       .then((res) => {
         return res;
       })
@@ -30,7 +30,7 @@ export const AuthenticationService = {
   // logout request
   logout: () => {
     return axiosInstance
-      .post(requests.logout, { credentials: "include" })
+      .post(requests.userapi.logout, { credentials: "include" })
       .then((res) => {
         return res;
       })
@@ -42,7 +42,7 @@ export const AuthenticationService = {
   // getMe request
   getMe: () => {
     return axiosInstance
-      .get(requests.getme, { credentials: "include" })
+      .get(requests.userapi.getme, { credentials: "include" })
       .then((res) => {
         return res;
       })
@@ -54,7 +54,7 @@ export const AuthenticationService = {
   // uploadAvatar request
   uploadAvatar: (data) => {
     return axiosInstance
-      .put(requests.avatar, data, { credentials: "include" })
+      .put(requests.userapi.avatar, data, { credentials: "include" })
       .then((res) => {
         return res;
       })
@@ -66,7 +66,7 @@ export const AuthenticationService = {
   // update request
   update: (data) => {
     return axiosInstance
-      .put(requests.update, data, { credentials: "include" })
+      .put(requests.userapi.update, data, { credentials: "include" })
       .then((res) => {
         return res;
       })

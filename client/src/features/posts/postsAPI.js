@@ -6,7 +6,7 @@ export const PostsService = {
   // create request
   create: (data) => {
     return axiosInstance
-      .post(requests.apipost.create, data, { credentials: "include" })
+      .post(requests.postapi.create, data, { credentials: "include" })
       .then((res) => {
         return res;
       })
