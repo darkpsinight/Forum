@@ -81,7 +81,11 @@ export default () => {
                         {
                             userDetails
                             &&
-                            <img className='avatar_image' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
+                            <img
+                                className='avatar_image'
+                                src={"http://localhost:5000/images/" + userDetails.avatar}
+                                alt=""
+                            />
                         }
                     </div>
                     <div className='name'>
@@ -122,7 +126,10 @@ export default () => {
                             </li>
                         </ul>
                     </div>
-                    <button style={{ background: "white" }} className='edit_button' onClick={() => setdisplayform(!displayform)}>
+                    <button
+                        style={{ background: "white" }}
+                        className='edit_button'
+                        onClick={() => setdisplayform(!displayform)}>
                         {
                             displayform
                                 ?
@@ -140,26 +147,51 @@ export default () => {
                         ?
                         <>
                             <h3>Edit User Details :</h3>
-                            <form onSubmit={updateuser} className='edituser'>
-                                <img src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
-                                <AiFillCamera className='uploadcamera' onClick={() => document.getElementById('upload').click()} />
-                                <input type="file" id='upload' onChange={(e) => handleupload(e)} hidden />
+                            <form
+                                onSubmit={updateuser}
+                                className='edituser'>
+                                <img
+                                    src={"http://localhost:5000/images/" + userDetails.avatar}
+                                    alt=""
+                                />
+                                <AiFillCamera
+                                    className='uploadcamera'
+                                    onClick={() => document.getElementById('upload').click()}
+                                />
+                                <input
+                                    type="file"
+                                    id='upload'
+                                    onChange={(e) => handleupload(e)}
+                                    hidden
+                                />
                                 {
                                     userDetails
                                     &&
                                     <>
-                                        <input type="text" placeholder='Change your name' value={name} onChange={(e) => setname(e.target.value)} />
-                                        <input type="text" placeholder='Change your email' value={email} onChange={(e) => setemail(e.target.value)} />
+                                        <input
+                                            type="text"
+                                            placeholder='Change your name'
+                                            value={name}
+                                            onChange={(e) => setname(e.target.value)}
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder='Change your email'
+                                            value={email}
+                                            onChange={(e) => setemail(e.target.value)}
+                                        />
                                     </>
                                 }
-                                <button type='submit'>Save</button>
+                                <button type='submit'>Save </button>
                                 <span>status</span>
                             </form>
                         </>
                         :
                         <>
                             <div className="search">
-                                <input type="text" placeholder='Search . . .' />
+                                <input
+                                    type="text"
+                                    placeholder='Search . . .' />
                                 <AiOutlineSearch className='searchicon' />
                             </div>
 
@@ -167,17 +199,46 @@ export default () => {
                                 {
                                     userDetails
                                     &&
-                                    <img className='createFormAvatar' src={"http://localhost:5000/images/" + userDetails.avatar} alt="" />
+                                    <img
+                                        className='createFormAvatar'
+                                        src={"http://localhost:5000/images/" + userDetails.avatar}
+                                        alt=""
+                                    />
                                 }
-                                <input type="text" placeholder='Write a post' value={postText} onChange={(e)=> setpostText(e.target.value)} />
-                                <input type="file" id="postimage" onChange={(e) => handlepostimage(e)} accept="image/*" hidden />
-                                <div style={{ display: "flex" }}>
-                                    <HiOutlinePhotograph
-                                        className='imagebtn'
-                                        style={{ cursor: "pointer", marginRight: "10px" }}
+                                <input
+                                    type="text"
+                                    placeholder='Write a post'
+                                    value={postText}
+                                    onChange={(e) => setpostText(e.target.value)}
+                                />
+                                <input
+                                    type="file"
+                                    id="postimage"
+                                    onChange={(e) => handlepostimage(e)}
+                                    accept="image/*"
+                                    hidden
+                                />
+                                <div
+                                    style={{
+                                        display: "flex"
+                                    }}>
+                                    <HiOutlinePhotograph className='imagebtn'
+                                        style={{
+                                            cursor: "pointer",
+                                            marginRight: "10px"
+                                        }}
                                         onClick={() => document.getElementById("postimage").click()}
                                     />
-                                    <button onClick={CreatePost} style={{ borderRadius: "10px", width: "70px", outline: "none", border: "1px solid lightgray", background: "#F1F0EE", height: "40px" }}>
+                                    <button
+                                        onClick={CreatePost}
+                                        style={{
+                                            borderRadius: "10px",
+                                            width: "70px",
+                                            outline: "none",
+                                            border: "1px solid lightgray",
+                                            background: "#F1F0EE",
+                                            height: "40px"
+                                        }}>
                                         <IoIosShareAlt />
                                     </button>
                                 </div>
@@ -186,7 +247,14 @@ export default () => {
                                 imagedisplay
                                 &&
                                 <>
-                                <img src={imagedisplay} style={{ height: '5%', width: '50%', borderRadius: '15px', marginTop:'3%' }} />
+                                    <img
+                                        src={imagedisplay}
+                                        style={{
+                                            height: '5%',
+                                            width: '50%',
+                                            borderRadius: '15px',
+                                            marginTop: '3%'
+                                        }} />
                                 </>
                             }
                             <hr />
