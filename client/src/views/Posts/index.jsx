@@ -57,15 +57,18 @@ export default () => {
     }
 
     //Create a whole post image+text
-    const CreatePost = () => {
-        const data = new FormData()
+    const Create = () => {
 
-        //affectation data de text et image
-        data.append('description', postText)
-        image && data.append('image', image)
-
-        //dispatch action
-        dispatch(createPost(data))
+        let data
+        if (!image) {
+            data = {
+                text: postText
+            }
+            dispatch(createPost(data))
+        }
+        else {
+            console.log('failure, cant post');
+        }
     }
 
 
@@ -229,7 +232,7 @@ export default () => {
                                         onClick={() => document.getElementById("postimage").click()}
                                     />
                                     <button
-                                        onClick={CreatePost}
+                                        onClick={Create}
                                         style={{
                                             borderRadius: "10px",
                                             width: "70px",

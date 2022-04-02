@@ -5,17 +5,17 @@ module.exports = {
     create: (req, res) => {
         const data = {
             user: req.user.sub,
-            description: req.body.description,
-            image: req.file && req.file.filename
+            text: req.body.text,
+            /* image: req.file && req.file.filename */
         }
 
         console.log(data)
 
         post.create(data, (err, post) => {
             if (err) {
-                res.status(500).json({ message: 'post not created , '+ err })
+                res.status(500).json({ message: 'Post not created , '+ err })
             } else {
-                res.status(200).json({ message: 'post successfuly created' })
+                res.status(200).json({ message: 'Post successfuly created', data : post })
             }
         })
     },
