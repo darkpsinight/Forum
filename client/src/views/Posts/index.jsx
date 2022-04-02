@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
 import { CgFeed } from 'react-icons/cg'
 import { BiMessageMinus } from 'react-icons/bi'
-import { AiFillCamera, AiOutlineSearch } from 'react-icons/ai'
+import { AiFillCamera, AiOutlineSearch, AiOutlineSend } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
-import { IoIosShareAlt } from 'react-icons/io'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
@@ -65,7 +64,7 @@ export default () => {
         data.append('description', postText)
         image && data.append('image', image)
 
-        //dispatch action mté3na
+        //dispatch action
         dispatch(createPost(data))
     }
 
@@ -239,7 +238,7 @@ export default () => {
                                             background: "#F1F0EE",
                                             height: "40px"
                                         }}>
-                                        <IoIosShareAlt />
+                                        <AiOutlineSend />
                                     </button>
                                 </div>
                             </div>
