@@ -8,7 +8,7 @@ import { HiOutlinePhotograph } from 'react-icons/hi'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
-import { createPost } from '../../features/posts/postsSlice'
+import { createPost, getPosts, selectPosts } from '../../features/posts/postsSlice'
 
 export default () => {
 
@@ -16,6 +16,7 @@ export default () => {
 
     useEffect(() => {
         dispatch(getMe())
+        dispatch(getPosts())
     }, [])
 
     const userDetails = useSelector(selectUserDetails)
@@ -71,6 +72,8 @@ export default () => {
         }
     }
 
+    //Get all posts
+    const posts = useSelector(selectPosts)
 
 
 
@@ -260,12 +263,16 @@ export default () => {
                                 </>
                             }
                             <hr />
-                            <Post />
-                            <Post />
-                            <Post />
-                            <Post />
-                            <Post />
-                            <Post />
+
+                            {
+                                posts.posts.map((post) => {
+                                    return (
+                                        <Post />
+                                    )
+                                })
+
+                            }
+
                         </>
                 }
 

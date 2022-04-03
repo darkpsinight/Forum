@@ -6,9 +6,9 @@ const route = express.Router()
 
 route.post('/', checkAuth, postController.create)
 route.delete('/:id', checkAuth, postController.deletepost)
-route.post('/:id', checkAuth, postController.updatePost)
-route.post('/:id', checkAuth, postController.getById)
-route.post('/:id', checkAuth, postController.getAll)
+route.put('/:id', checkAuth, postController.updatePost)
+route.get('/:id', checkAuth, postController.getById)
+route.get('/', checkAuth, postController.getAll)
 
 
 module.exports = route

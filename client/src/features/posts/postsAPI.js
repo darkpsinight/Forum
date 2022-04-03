@@ -3,7 +3,8 @@ import { requests } from "../../config/requests";
 
 //post service
 export const PostsService = {
-  // create request
+
+  // Create post request
   create: (data) => {
     console.log(data);
     return axiosInstance
@@ -16,4 +17,15 @@ export const PostsService = {
       });
   },
 
+  // Get all posts request
+  getPosts: () => {
+    return axiosInstance
+      .get(requests.postapi.getAll, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
 };

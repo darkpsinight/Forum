@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PostsService } from "./postsAPI";
 
 const initialState = {
-
+    posts: []
 };
 
 
@@ -14,6 +14,15 @@ export const createPost = createAsyncThunk(
     "posts/create",
     async (data) => {
         const response = PostsService.create(data);
+        return response;
+    }
+);
+
+//Get all posts redux action
+export const getPosts = createAsyncThunk(
+    "posts/getall",
+    async () => {
+        const response = PostsService.getPosts();
         return response;
     }
 );
@@ -43,6 +52,22 @@ const postsSlice = createSlice({
         [createPost.rejected]: (state, action) => {
             
         },
+
+
+        //getall http request 3 cases
+        [getPosts.pending]: (state, action) => {
+
+        },
+
+        [getPosts.fulfilled]: (state, action) => {
+            console.log(action.payload);
+            state.posts = action.payload.data.data
+        },
+
+        [getPosts.rejected]: (state, action) => {
+            
+        },
+
     },
 });
 export const { } = postsSlice.actions;
