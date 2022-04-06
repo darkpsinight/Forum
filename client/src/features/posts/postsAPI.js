@@ -28,4 +28,16 @@ export const PostsService = {
         return err;
       });
   },
+
+  //Get My Posts only request
+  getMyPosts: () => {
+    return axiosInstance
+      .get(requests.postapi.myposts, { credentials: "include" })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return err;
+      });
+  },
 };

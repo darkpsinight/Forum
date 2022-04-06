@@ -27,6 +27,15 @@ export const getPosts = createAsyncThunk(
     }
 );
 
+//Get my posts redux action
+export const getMyPosts = createAsyncThunk(
+    "posts/myposts",
+    async () => {
+        const response = PostsService.getMyPosts();
+        return response;
+    }
+);
+
 
 
 //creation du slice
@@ -66,6 +75,20 @@ const postsSlice = createSlice({
         },
 
         [getPosts.rejected]: (state, action) => {
+            
+        },
+
+        //getMyPosts http request 3 cases
+        [getMyPosts.pending]: (state, action) => {
+
+        },
+
+        [getMyPosts.fulfilled]: (state, action) => {
+            console.log(action.payload);
+            state.posts = action.payload.data.data
+        },
+
+        [getMyPosts.rejected]: (state, action) => {
             
         },
 

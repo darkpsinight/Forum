@@ -266,7 +266,7 @@ export default () => {
                                     <img
                                         src={imagedisplay}
                                         style={{
-                                            height: '5%',
+                                            height: '300px',
                                             width: '50%',
                                             borderRadius: '15px',
                                             marginTop: '3%'
@@ -274,12 +274,49 @@ export default () => {
                                     />
                                 </>
                             }
+                            <div
+                                style={{
+                                    marginTop: '30px',
+                                    display: 'flex',
+                                    alignItems: 'center'
+                                }}>
+                                <span
+                                    style={{
+                                        marginRight: '20px',
+                                        fontWeight: 'bold'
+                                    }}>
+                                    Display :
+                                </span>
+                                <button
+                                    style={{
+                                        border: '1px solid #726AE3',
+                                        borderRadius: '100px',
+                                        background: '#726AE3',
+                                        padding: '10px',
+                                        boxShadow: '5px 5px 13px -3px rgba(0,0,0,0.87)'
+                                    }}>
+                                    All posts
+                                </button>
+                                <button
+                                    style={{
+                                        marginLeft: '15px',
+                                        border: '1px solid #726AE3',
+                                        borderRadius: '100px',
+                                        background: '#726AE3',
+                                        padding: '10px',
+                                        boxShadow: '5px 5px 13px -3px rgba(0,0,0,0.87)'
+                                    }}>
+                                    My posts
+                                </button>
+                            </div>
                             <hr />
 
                             {
                                 posts.posts.map((post) => {
                                     return (
-                                        <Post post={post} />
+                                        <Post
+                                            post={post}
+                                        />
                                     )
                                 })
                             }

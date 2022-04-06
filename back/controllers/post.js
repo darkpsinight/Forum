@@ -63,4 +63,22 @@ module.exports = {
             }
         )
     },
+    getOwnPosts: (req, res) => {
+        const { sub } = req.user
+
+        post.find({ user: sub })
+            .populate('user')
+            .then(posts => {
+                res.status(200).json({
+                    message: 'user posts',
+                    data: posts
+                })
+            })
+            .catch(err => {
+                res.status(500).json({
+                    message: 'no user posts',
+                    data: null
+                })
+            })
+    },
 }

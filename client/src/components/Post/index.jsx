@@ -32,7 +32,7 @@ export default ({ post }) => {
                                 By: {post.user.name}
                             </h6>
                             <span>
-                                At: {moment(post.createdAt).fromNow()}
+                                {moment(post.createdAt).fromNow()}
                             </span>
                         </div>
                     </div>

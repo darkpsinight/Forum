@@ -9,6 +9,7 @@ route.delete('/:id', checkAuth, postController.deletepost)
 route.put('/:id', checkAuth, postController.updatePost)
 route.get('/:id', checkAuth, postController.getById)
 route.get('/', checkAuth, postController.getAll)
+route.get('/myposts', checkAuth, postController.getOwnPosts)
 
 
 module.exports = route

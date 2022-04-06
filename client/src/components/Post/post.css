@@ -41,7 +41,8 @@
 
 .postText{
     padding: 0 15px;
-    font-size: 15px;
+    font-size: 25px;
+    font-family: 'Arial', Helvetica, sans-serif;
 }
 
 .post-down-content {
