@@ -8,6 +8,10 @@
     display: flex;
 }
 
+.submit {
+    font-size: large;
+}
+
 .headerleft > img {
     height: 50px;
     width: 50px;
@@ -20,7 +24,9 @@
 
 .postinfo > span {
     font-size: 15px;
-    color: lightgray;
+    color: rgb(146, 145, 145);
+    font-style: italic;
+    font-weight: bold;
 }
 
 .postsettings {

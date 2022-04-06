@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
 import { CgFeed } from 'react-icons/cg'
 import { BiMessageMinus } from 'react-icons/bi'
-import { AiFillCamera, AiOutlineSearch, AiOutlineSend } from 'react-icons/ai'
+import { AiFillCamera, AiOutlineSearch, AiOutlineSend, AiFillSave } from 'react-icons/ai'
 import { HiOutlinePhotograph } from 'react-icons/hi'
+import { FaUserEdit } from 'react-icons/fa'
+import { ImCancelCircle } from 'react-icons/im'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
@@ -138,9 +140,9 @@ export default () => {
                         {
                             displayform
                                 ?
-                                <p>Cancel</p>
+                                <p><ImCancelCircle /> Cancel</p>
                                 :
-                                <p>Edit</p>
+                                <p><FaUserEdit /> Edit</p>
                         }
                     </button>
                 </div>
@@ -187,7 +189,11 @@ export default () => {
                                         />
                                     </>
                                 }
-                                <button type='submit'>Save </button>
+                                <button
+                                    type='submit'
+                                    className='submit'
+                                > <AiFillSave /> Save
+                                </button>
                                 <span>status</span>
                             </form>
                         </>
@@ -230,7 +236,9 @@ export default () => {
                                     <HiOutlinePhotograph className='imagebtn'
                                         style={{
                                             cursor: "pointer",
-                                            marginRight: "10px"
+                                            marginRight: "10px",
+                                            color: "#F58C56",
+                                            fontSize: "40px"
                                         }}
                                         onClick={() => document.getElementById("postimage").click()}
                                     />
@@ -242,7 +250,10 @@ export default () => {
                                             outline: "none",
                                             border: "1px solid lightgray",
                                             background: "#F1F0EE",
-                                            height: "40px"
+                                            height: "40px",
+                                            fontSize: "20px",
+                                            color: "white",
+                                            backgroundColor: "#726AE3"
                                         }}>
                                         <AiOutlineSend />
                                     </button>
@@ -259,7 +270,8 @@ export default () => {
                                             width: '50%',
                                             borderRadius: '15px',
                                             marginTop: '3%'
-                                        }} />
+                                        }}
+                                    />
                                 </>
                             }
                             <hr />
@@ -267,10 +279,9 @@ export default () => {
                             {
                                 posts.posts.map((post) => {
                                     return (
-                                        <Post />
+                                        <Post post={post} />
                                     )
                                 })
-
                             }
 
                         </>

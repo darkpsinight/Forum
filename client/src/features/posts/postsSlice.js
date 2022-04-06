@@ -47,6 +47,7 @@ const postsSlice = createSlice({
 
         [createPost.fulfilled]: (state, action) => {
             console.log(action.payload);
+            window.location.reload(false);
         },
 
         [createPost.rejected]: (state, action) => {
