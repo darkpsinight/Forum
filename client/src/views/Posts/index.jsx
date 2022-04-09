@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './posts.css'
 import { CgFeed } from 'react-icons/cg'
@@ -11,9 +11,11 @@ import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
 import { createPost, getPosts, selectPosts } from '../../features/posts/postsSlice'
+import { io } from 'socket.io-client'
 
 export default () => {
 
+    //dispatch getMe + getPosts
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -21,6 +23,7 @@ export default () => {
         dispatch(getPosts())
     }, [])
 
+    //selector userDetails
     const userDetails = useSelector(selectUserDetails)
 
     //display form after clicking on Edit button (by default is false = not shown)
@@ -76,6 +79,14 @@ export default () => {
 
     //Get all posts
     const posts = useSelector(selectPosts)
+
+    //implement socket
+    //useRef Hook to save variable socket
+    const socket = useRef()
+
+    useEffect(() => {
+        socket.current = io("ws://localhost:4000")
+    }, [])
 
 
 

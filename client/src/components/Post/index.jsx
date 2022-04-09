@@ -56,7 +56,13 @@ export default ({ post }) => {
                     post.iamge
                     &&
                     <div className="thumb mt-2">
-                        <a href="#"><img src="/assets/images/blog-post-01.jpg" /></a>
+                        <a
+                            href="#"
+                        >
+                            <img
+                                src="/assets/images/blog-post-01.jpg"
+                            />
+                        </a>
                     </div>
                 }
                 <div className="post-down-content">
@@ -74,11 +80,13 @@ export default ({ post }) => {
                                 <img
                                     className='avatar_image'
                                     src={"http://localhost:5000/images/" + userDetails.avatar}
-                                    alt="" />
+                                    alt=""
+                                />
                             }
                             <input
                                 type="text"
-                                placeholder=" write a comment !" />
+                                placeholder="Write a comment !"
+                            />
                         </div>
                         <Comment />
                     </div>
