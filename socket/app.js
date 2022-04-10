@@ -5,10 +5,15 @@ const io = require("socket.io")(4000, {
 });
 
 
-io.sockets.on('connection', function (socket) {
-    console.log('Connected user.',socket.connected, socket.id);
+io.on('connection', (socket) => {
+    console.log('Connected user.✅');
+
+    socket.on('addPost', data => {
+        console.log(data);
+        io.emit('newPost', data)
+    })
 
     socket.on('disconnect', function (socket) {
-        console.log('Disconnected user.',socket.connected, socket.id);
+        console.log('Disconnected user.⛔️');
     });
 });

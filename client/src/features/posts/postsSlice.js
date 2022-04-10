@@ -2,7 +2,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PostsService } from "./postsAPI";
 
 const initialState = {
-    posts: []
+    posts: [],
+
+    //new created and saved post in database to emit it into the socket server
+    createdPostsocket: null
 };
 
 
@@ -57,6 +60,7 @@ const postsSlice = createSlice({
         [createPost.fulfilled]: (state, action) => {
             console.log(action.payload);
             window.location.reload(false);
+            state.createdPostsocket= action.payload.data.data
         },
 
         [createPost.rejected]: (state, action) => {

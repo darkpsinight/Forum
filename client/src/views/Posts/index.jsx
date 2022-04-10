@@ -73,11 +73,11 @@ export default () => {
             dispatch(createPost(data))
         }
         else {
-            console.log('failure, cant post');
+            console.log('Failure, cant post');
         }
     }
 
-    //Get all posts
+    //Get all (posts selector)
     const posts = useSelector(selectPosts)
 
     //implement socket
@@ -88,6 +88,10 @@ export default () => {
         socket.current = io("ws://localhost:4000")
     }, [])
 
+    //Created post socket
+    useEffect(() => {
+        socket.current.emit("addPost", posts.createdPostsocket);
+    }, [posts.createdPostsocket])
 
 
     return (

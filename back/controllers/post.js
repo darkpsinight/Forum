@@ -11,13 +11,22 @@ module.exports = {
 
         console.log(data)
 
-        post.create(data, (err, post) => {
-            if (err) {
-                res.status(500).json({ message: 'Post not created , '+ err })
-            } else {
-                res.status(200).json({ message: 'Post successfuly created', data : post })
-            }
-        })
+        const t = new post(data)
+        t.save().then(t => t
+            .populate('user')
+            .then(post => {
+                res.status(200).json({
+                    message: 'post created',
+                    data: post
+                })
+            })
+            .catch(err => {
+                res.status(500).json({
+                    message: 'post not created',
+                    data: null
+                })
+            })
+        )
     },
     deletepost: (req, res) => {
         post.findByIdAndDelete({ _id: req.params.id }, (err, post) => {
