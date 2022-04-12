@@ -16,28 +16,28 @@ const initialState = {
 export const createPost = createAsyncThunk(
     "posts/create",
     async (data) => {
-        const response = PostsService.create(data);
-        return response;
+        const response = PostsService.create(data)
+        return response
     }
-);
+)
 
 //Get all posts redux action
 export const getPosts = createAsyncThunk(
     "posts/getall",
     async () => {
-        const response = PostsService.getPosts();
-        return response;
+        const response = PostsService.getPosts()
+        return response
     }
-);
+)
 
 //Get my posts redux action
 export const getMyPosts = createAsyncThunk(
     "posts/myposts",
     async () => {
-        const response = PostsService.getMyPosts();
-        return response;
+        const response = PostsService.getMyPosts()
+        return response
     }
-);
+)
 
 
 
@@ -47,7 +47,11 @@ const postsSlice = createSlice({
     initialState,
 
     //reducers homa les actions ki ma nest7a9ich bech njib données mil serveurs walla nsob données mil serveur
-    reducers: {},
+    reducers: {
+        pushpost: (state, action) => {
+            state.posts.push(action.payload.post)
+        }
+    },
 
     //extraReducers houma les actions li bech ycommunicou m3a serveur (backend)
     extraReducers: {
@@ -59,12 +63,12 @@ const postsSlice = createSlice({
 
         [createPost.fulfilled]: (state, action) => {
             console.log(action.payload);
-            window.location.reload(false);
-            state.createdPostsocket= action.payload.data.data
+            /* window.location.reload(false); */  //if enabled, socket will always returns data as a null value
+            state.createdPostsocket = action.payload.data.data
         },
 
         [createPost.rejected]: (state, action) => {
-            
+
         },
 
 
@@ -79,7 +83,7 @@ const postsSlice = createSlice({
         },
 
         [getPosts.rejected]: (state, action) => {
-            
+
         },
 
         //getMyPosts http request 3 cases
@@ -93,12 +97,12 @@ const postsSlice = createSlice({
         },
 
         [getMyPosts.rejected]: (state, action) => {
-            
+
         },
 
     },
 });
-export const { } = postsSlice.actions;
+export const { pushpost } = postsSlice.actions;
 
 export const selectPosts = (state) => state.posts
 

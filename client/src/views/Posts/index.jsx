@@ -10,7 +10,7 @@ import { ImCancelCircle } from 'react-icons/im'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
-import { createPost, getPosts, selectPosts } from '../../features/posts/postsSlice'
+import { createPost, getPosts, pushpost, selectPosts } from '../../features/posts/postsSlice'
 import { io } from 'socket.io-client'
 
 export default () => {
@@ -86,11 +86,17 @@ export default () => {
 
     useEffect(() => {
         socket.current = io("ws://localhost:4000")
+
+        socket.current.on('newPost', post => {
+            console.log('new post ', post)
+            dispatch(pushpost({ post: post }))
+        })
     }, [])
 
     //Created post socket
     useEffect(() => {
-        socket.current.emit("addPost", posts.createdPostsocket);
+        if (posts.createdPostsocket)
+            socket.current.emit("addPost", posts.createdPostsocket);
     }, [posts.createdPostsocket])
 
 
