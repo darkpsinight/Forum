@@ -4,9 +4,10 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import ReadMoreReact from 'read-more-react';
 import { AiFillHeart } from 'react-icons/ai'
 import Comment from '../Comment';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUserDetails } from '../../features/authentication/authenticationSlice';
 import moment from 'moment';
+import { createComment } from '../../features/comments/commentsSlice';
 
 
 export default ({ post }) => {
@@ -14,19 +15,44 @@ export default ({ post }) => {
     const More = () => {
         return (
             <>
-                <span style={{ cursor: "pointer", fontSize: "14px", color: "lightgrey" }}>read more ...</span>
+                <span
+                    style={{
+                        cursor: "pointer",
+                        fontSize: "14px",
+                        color: "lightgrey"
+                    }}>
+                     read more ...
+                </span>
             </>
         )
     }
 
     const userDetails = useSelector(selectUserDetails)
 
+    const dispatch = useDispatch()
+
+    const addComment = (e) => {
+        let data = {
+            text: e.target.value,
+            post: post._id
+        }
+        if (e.key === 'Enter') {
+            dispatch(createComment(data))
+            document.getElementById('cominput').value = ''
+        }
+    }
+
+
+    
     return (
         <div className="col-lg-12 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
             <div className="blog-post">
                 <div className="postheader">
                     <div className="headerleft">
-                        <img src={"http://localhost:5000/images/" + post.user.avatar} alt="" />
+                        <img
+                            src={"http://localhost:5000/images/" + post.user.avatar}
+                            alt=""
+                        />
                         <div className="postinfo">
                             <h6>
                                 By: {post.user.name}
@@ -61,6 +87,7 @@ export default ({ post }) => {
                         >
                             <img
                                 src="/assets/images/blog-post-01.jpg"
+                                alt=""
                             />
                         </a>
                     </div>
@@ -84,6 +111,8 @@ export default ({ post }) => {
                                 />
                             }
                             <input
+                                onKeyDown={(e) => addComment(e)}
+                                id='cominput'
                                 type="text"
                                 placeholder="Write a comment !"
                             />

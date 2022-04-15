@@ -16,6 +16,7 @@ app.use(cors({
 // routes
 app.use('/auth', require('./routes/user'))
 app.use('/posts', require('./routes/post'))
+app.use('/comments', require('./routes/comment'))
 
 //upload image
 app.get("/images/:image", function (req, res) {

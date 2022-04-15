@@ -10,6 +10,9 @@ export const requests = {
     postapi: {
         create: '/posts',
         getAll: '/posts',
-        myposts: '/myposts',
+        myposts: '/myposts'
+    },
+    commentsapi :{
+        create: '/comments',
     }
 }
