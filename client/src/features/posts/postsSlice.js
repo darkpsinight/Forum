@@ -52,7 +52,6 @@ const postsSlice = createSlice({
             state.posts.push(action.payload.post)
         },
         refreshPost: (state, action) => {
-            let pos
             let arr = [...state.posts]
             for (let i = 0; i < arr.length; i++) {
                 const element = arr[i];

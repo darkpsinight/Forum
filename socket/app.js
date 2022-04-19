@@ -18,9 +18,9 @@ io.on('connection', (socket) => {
     socket.on('PostChanged', data => {
         console.log(data);
         io.emit('refreshPost', data)
-    })
+    })/* 
 
     socket.on('disconnect', function (socket) {
         console.log('Disconnected user.⛔️');
-    });
+    }); */
 });
