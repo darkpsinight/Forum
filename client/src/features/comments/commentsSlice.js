@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CommentsService } from "./commentsAPI";
 
 const initialState = {
-    
+    changedPost : null,
+    addcomment: ''
 };
 
 
@@ -33,22 +34,24 @@ const commentsSlice = createSlice({
 
         //Create http request 3 cases
         [createComment.pending]: (state, action) => {
-
+            state.addcomment = 'loading'
         },
 
         [createComment.fulfilled]: (state, action) => {
             console.log(action.payload);
-            //state.createdCommentsocket = action.payload.data.data
+            state.changedPost = action.payload.data.data
+            state.addcomment = 'success'
         },
 
         [createComment.rejected]: (state, action) => {
-
+            state.addcomment = 'failure'
         },
 
     },
 });
 export const { } = commentsSlice.actions;
 
-//export const selectComments = (state) => state.posts
+export const selectChangedPost = (state) => state.comments
+export const addcomstatus = (state) => state.comments.addcomment
 
 export default commentsSlice.reducer;

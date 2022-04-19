@@ -50,6 +50,16 @@ const postsSlice = createSlice({
     reducers: {
         pushpost: (state, action) => {
             state.posts.push(action.payload.post)
+        },
+        refreshPost: (state, action) => {
+            let pos
+            let arr = [...state.posts]
+            for (let i = 0; i < arr.length; i++) {
+                const element = arr[i];
+                if (element._id === action.payload.post._id)
+                    arr[i] = action.payload.post
+            }
+            state.posts = arr
         }
     },
 
@@ -102,7 +112,7 @@ const postsSlice = createSlice({
 
     },
 });
-export const { pushpost } = postsSlice.actions;
+export const { pushpost, refreshPost } = postsSlice.actions;
 
 export const selectPosts = (state) => state.posts
 

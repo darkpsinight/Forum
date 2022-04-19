@@ -54,6 +54,7 @@ module.exports = {
     getAll: (req, res) => {
         post.find({})
             .populate('user')
+            .populate({ path: 'comments', populate: { path: 'user' } })
             .then(posts => {
                 res.status(200).json({ message: "posts", data: posts })
             })

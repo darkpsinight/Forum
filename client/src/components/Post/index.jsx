@@ -12,6 +12,7 @@ import { createComment } from '../../features/comments/commentsSlice';
 
 export default ({ post }) => {
 
+    //ReadMore package
     const More = () => {
         return (
             <>
@@ -21,14 +22,16 @@ export default ({ post }) => {
                         fontSize: "14px",
                         color: "lightgrey"
                     }}>
-                     read more ...
+                    read more ...
                 </span>
             </>
         )
     }
 
+    //userDetails selector (pour l'images)
     const userDetails = useSelector(selectUserDetails)
 
+    //add (create) comment
     const dispatch = useDispatch()
 
     const addComment = (e) => {
@@ -43,7 +46,7 @@ export default ({ post }) => {
     }
 
 
-    
+
     return (
         <div className="col-lg-12 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
             <div className="blog-post">
@@ -117,7 +120,13 @@ export default ({ post }) => {
                                 placeholder="Write a comment !"
                             />
                         </div>
-                        <Comment />
+                        {
+                            post.comments.map(com => {
+                                return (
+                                    <Comment comment={com} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

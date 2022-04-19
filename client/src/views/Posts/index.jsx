@@ -10,8 +10,9 @@ import { ImCancelCircle } from 'react-icons/im'
 import Post from '../../components/Post'
 import Notification from '../../components/Notification'
 import { getMe, selectUserDetails, update, uploadAvatar } from '../../features/authentication/authenticationSlice'
-import { createPost, getPosts, pushpost, selectPosts } from '../../features/posts/postsSlice'
+import { createPost, getPosts, pushpost, refreshPost, selectPosts } from '../../features/posts/postsSlice'
 import { io } from 'socket.io-client'
+import { addcomstatus, selectChangedPost } from '../../features/comments/commentsSlice'
 
 export default () => {
 
@@ -81,15 +82,21 @@ export default () => {
     const posts = useSelector(selectPosts)
 
     //implement socket
-    //useRef Hook to save variable socket
-    const socket = useRef()
+    const socket = useRef()     //useRef Hook to save variable socket
 
+    //Post
     useEffect(() => {
         socket.current = io("ws://localhost:4000")
 
+        //socket create new post
         socket.current.on('newPost', post => {
             console.log('new post ', post)
             dispatch(pushpost({ post: post }))
+        })
+        //socket refresh post
+        socket.current.on('refreshPost', newpost => {
+            console.log('refreshPost', newpost)
+            dispatch(refreshPost({ post: newpost }))
         })
     }, [])
 
@@ -98,6 +105,23 @@ export default () => {
         if (posts.createdPostsocket)
             socket.current.emit("addPost", posts.createdPostsocket);
     }, [posts.createdPostsocket])
+
+    //affichage comments
+    const changedpost = useSelector(selectChangedPost)
+
+    useEffect(() => {
+        if (posts.createdPostsocket)
+            socket.current.emit("addPost", changedpost.changedPost);
+    }, [changedpost.addcomment])
+
+    //...
+    const comstatus = useSelector(addcomstatus)
+
+    useEffect(() => {
+        console.log('i am sending')
+        socket.current.emit("PostChanged", changedpost.changedPost)
+    }, [comstatus])
+
 
 
     return (
