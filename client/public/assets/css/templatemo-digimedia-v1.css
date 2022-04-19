@@ -1727,8 +1727,7 @@ Blog
 
 .blog-post {
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-  border-radius: 25px;
-  background-color: moccasin;
+  background-color: #ecebe9;
   margin-bottom: 15px;
 }
 
